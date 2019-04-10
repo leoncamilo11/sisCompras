@@ -1,0 +1,10 @@
+# Evitar el acceso al directorio de archivos
+
+Options -Indexes
+
+
+# Url Amigables
+
+RewriteEngine on
+
+RewriteRule ^(\w+)$ index.php?llamar=$1
