@@ -12,9 +12,11 @@
     <link rel="stylesheet" type="text/css" href="Vistas/css/materialize.css">
     <link rel="stylesheet" type="text/css" href="Vistas/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="text/javascript" src="Vistas/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="Vistas/js/materialize.min.js"></script>
+    <script type="text/javascript" src="Vistas/js/funciones.js"></script>
   </head>
-  <!--<body onload="mostrar()">-->
-  <body>
+  <body onload="mostrar()">
     <div class="cuerpo">
       <header class="encabezado">
         <?php
@@ -33,9 +35,6 @@
         Sistema Control Compras Fao Colombia
       </footer>
     </div>
-    <script type="text/javascript" src="Vistas/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="Vistas/js/materialize.min.js"></script>
-    <script type="text/javascript" src="Vistas/js/funciones.js"></script>
   </body>
 </html>
 <?php

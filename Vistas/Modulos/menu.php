@@ -40,7 +40,7 @@
 
 <!--Menú de salida-->
 <ul id="listaSalida" class="dropdown-content">
-	<li><a href="#">Cambiar clave</a></li>
+	<li><a href="actualizarClave">Cambiar clave</a></li>
 	<li class="divider"></li>
 	<li><a href="salir">Salir</a></li>
 </ul>

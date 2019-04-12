@@ -3,11 +3,11 @@ $(".dropdown-button").dropdown();
 
 $(".dropdown-trigger").dropdown();
 
-/*function mostrar(){
-	alert("Page is loaded");
+function mostrar(){
+	//alert("Page is loaded");
 	$('select').material_select();
 	$('textarea#contenido, textarea#tema')
-}*/
+}
 
 /*$(document).ready(function(){
 	$('#table_id').DataTable({
