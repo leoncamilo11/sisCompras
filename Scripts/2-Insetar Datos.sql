@@ -1,4 +1,6 @@
-#Inserat datos en las tablas estaticas
+-- ********************************************************************************************
+-- 				Script para insertar datos en tablas estaticas controlcomprasdb
+-- ********************************************************************************************
 
 	use controlcomprasdb;
     

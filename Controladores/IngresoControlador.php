@@ -2,29 +2,29 @@
   /**
    *
    */
-  class ControladorIngreso
+  class IngresoControlador
   {
 
-    public function ControladorIngresar()
+    public function ingresarControlador()
     {
       if (isset($_POST["email"]) && strlen($_POST["email"])>0) {
         $email = $_POST["email"];
         if (isset($_POST["email"]) && isset($_POST["password"])) {
           $datosControlador = array("email" => $_POST["email"], "clave" => $_POST["password"]);
-          $respuesta = ModeloIngreso::ModeloIngresar($datosControlador);
-          if ($respuesta["Email"] == $_POST["email"] && $respuesta["Clave"] == $_POST["password"] && $respuesta["Nombre"] && $respuesta["Apellido"] && $respuesta["IdRolFk"] && $respuesta["IdProyectoFk"]) {
+          $respuesta = IngresoModelo::ingresarModelo($datosControlador);
+          if ($respuesta["Email"] == $_POST["email"] && $respuesta["Clave"] == $_POST["password"] && $respuesta["Identificacion"] && $respuesta["Nombre"] && $respuesta["Apellido"] && $respuesta["IdRol"] && $respuesta["IdProyecto"]) {
             echo ("<div class='alert alert-success'><strong>Excelente!</strong>Ingreso satisfactorio al sistema.</div>");
             $_SESSION["email"]=$respuesta["Email"];
 						$_SESSION["password"]=$respuesta["Clave"];
+            $_SESSION["identificacion"]=$respuesta["Identificacion"];
 						$_SESSION["nombre"]=$respuesta["Nombre"];
 						$_SESSION["apellido"]=$respuesta["Apellido"];
-						$_SESSION["rol"]=$respuesta["IdRolFk"];
-            $_SESSION["proyecto"]=$respuesta["IdProyectoFk"];
+						$_SESSION["rol"]=$respuesta["IdRol"];
+            $_SESSION["proyecto"]=$respuesta["IdProyecto"];
 						$_SESSION["sesionIniciada"]=true;
-            if ($respuesta["IdRolFk"] == 3) {
-              echo "Hola";
+            if ($respuesta["IdRol"] == 3) {
               header("location:introduccion");
-            } elseif ($respuesta["IdRolFk"] == 1 || $respuesta["IdRolFk"] == 2) {
+            } elseif ($respuesta["IdRol"] == 1 || $respuesta["IdRol"] == 2) {
               header("location:introduccion");
             }
           } else {

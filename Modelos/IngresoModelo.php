@@ -2,10 +2,10 @@
   /**
    *
    */
-  class ModeloIngreso extends Conexion
+  class IngresoModelo extends Conexion
   {
 
-    public function ModeloIngresar($datosControlador)
+    public function ingresarModelo($datosControlador)
     {
       $c_bd = Conexion::conectar() -> prepare("SELECT *
                                                   FROM vlogin

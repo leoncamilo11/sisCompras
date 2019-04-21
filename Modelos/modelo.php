@@ -5,11 +5,13 @@
   class MvcModelo
   {
 
-    public function enlacesPaginaModelo($enlace)
+    public function enlacesPaginasModelo($enlace)
     {
       $modulo = "Vistas/Modulos/";
       $enlaces = array("introduccion", "login", "compras", "reportes", "salir",
-                        "usuarios", "actualizarClave");
+                        "usuarios", "actualizarClave", "registrarUsuarios",
+                        "consultarUsuarios", "registrarCompras", "consultarUsuariosDes",
+                        "actualizarUsuarios");
       if (in_array($enlace, $enlaces)) {
         $modulo = $modulo . $enlace . ".php";
       } else {

@@ -5,7 +5,7 @@
     if ($_SESSION["rol"] == 3) {
       echo '<li class="divider"></li>';
       echo '<li><a href="registrarUsuarios">Registrar</a></li>';
-      echo '<li><a href="consultarUsuariosD">Inactivos</a></li>';
+      echo '<li><a href="consultarUsuariosDes">Inactivos</a></li>';
     }
    ?>
 </ul>
@@ -51,8 +51,8 @@
     <a href="introduccion"><img class="logoNav" src="Vistas/imagenes/logoF.png"></a>
     <ul class="right hide-on-med-and-down" id="list" name="list">
 			<?php
-				$menu = new MenuController();
-				$menu -> MenuUsuariosController();
+				$menu = new MenuControlador();
+				$menu -> menuUsuariosControlador();
 			 ?>
     </ul>
   </div>

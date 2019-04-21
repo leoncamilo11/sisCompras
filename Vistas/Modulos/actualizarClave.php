@@ -4,7 +4,7 @@
 			<div class="col s12 m3"></div>
 			<div class="col s12 m6">
 				<div class="card medium">
-					<div class="card-panel indigo darken-4">
+					<div class="card-panel blue darken-3">
 						<span class="card-title white-text">Cambiar Contraseña</span>
 					</div>
 					<div class="card-content">
@@ -16,21 +16,21 @@
 						</div>
 						<div class="row">
 							<div class="input-field col s6">
-								<input type="password" name="claveN" id="claveN" required>
-								<label for="claveN">Nueva Clave</label>
+								<input type="password" name="claveNueva" id="claveNueva" required>
+								<label for="claveNueva">Nueva Clave</label>
 							</div>
 							<div class="input-field col s6">
-								<input type="password" name="claveNc" id="claveNc" required>
-								<label for="claveNc">Confirmar Nueva Clave</label>
+								<input type="password" name="claveNuevaC" id="claveNuevaC" required>
+								<label for="claveNuevaC">Confirmar Nueva Clave</label>
 							</div>
 						</div>
 					</div>
 					<div class="card-action">
 						<?php
-							//$claveN = new ActualizaClaveController();
-							//$claveN -> ActualizarClaveController();
+							$claveN = new ActualizaClaveControlador();
+							$claveN -> actualizarClaveControlador();
 						?>
-						<button class="btn waves-effect waves-light indigo darken-4" type="submit" name="registrar" id="registar">Cambiar Contraseña
+						<button class="btn waves-effect waves-light indigo blue darken-3" type="submit" name="registrar" id="registar">Cambiar Contraseña
 						<i class="material-icons right">send</i></button>
 					</div>
 				</div>

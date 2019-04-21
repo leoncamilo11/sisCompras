@@ -9,7 +9,7 @@ function mostrar(){
 	$('textarea#contenido, textarea#tema')
 }
 
-/*$(document).ready(function(){
+$(document).ready(function(){
 	$('#table_id').DataTable({
 		language: {
 			"sProcessing":     "Procesando...",
@@ -36,4 +36,4 @@ function mostrar(){
 			}
 		}
 	});
-});*/
+});

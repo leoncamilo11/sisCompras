@@ -25,8 +25,8 @@
       </header>
       <div class="contenido">
         <?php
-          $mvc = new MvcController();
-          $mvc -> controladorEnalcesPaginas();
+          $mvc = new MvcControlador();
+          $mvc -> enalcesPaginasControlador();
           //$con = new Conexion;
           //$con -> conectar();
          ?>

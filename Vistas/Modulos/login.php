@@ -25,8 +25,8 @@
   									<label for="password">CONTRASEÑA</label>
   							</div>
                 <?php
-                  $ingreso = new ControladorIngreso();
-                  $ingreso -> ControladorIngresar();
+                  $ingreso = new IngresoControlador();
+                  $ingreso -> ingresarControlador();
                 ?>
               <button class="btn btn-lg btn-primary btn-block indigo darken-4" type="submit">Ingresar<i class="material-icons left">settings_power</i></button>
               </div>

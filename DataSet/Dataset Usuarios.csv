@@ -1,0 +1,32 @@
+﻿IdUsuario;Identificacion;Nombre;Apellido;Email;Clave;IdRol;IdProyecto;Activo
+1;1016574823;Camilo;Leon;Camilo.Leon@fao.org;fao123;3;5;1
+2;1405708555;Andrea;Vilalobos;Andrea.Vilalobos@fao.org;fao124;2;5;1
+3;1309149295;Pedro;Gonzalez;Pedro.Gonzalez@fao.org;fao125;3;5;0
+4;1176399378;Nicolas;Fierro;Nicolas.Fierro@fao.org;fao126;1;1;0
+5;1798555463;Maria Irma;Gonzalez;Maria Irma.Gonzalez@fao.org;fao127;2;5;1
+6;1425647194;Uberlinda;Mella;Uberlinda.Mella@fao.org;fao128;3;5;1
+7;1505790915;Yenny;Pardo;Yenny.Pardo@fao.org;fao129;1;2;1
+8;1899545598;Basilia;Vasquez;Basilia.Vasquez@fao.org;fao130;2;5;1
+9;1978873142;Juan Plinio;Hermosilla;Juan Plinio.Hermosilla@fao.org;fao131;2;5;0
+10;1414508380;Julián;Matamala;Julián.Matamala@fao.org;fao132;3;5;0
+11;1579792582;Juan;Lara;Juan.Lara@fao.org;fao133;3;5;0
+12;1208529939;Patricia;Fernandez;Patricia.Fernandez@fao.org;fao134;3;5;1
+13;1737983067;Ana;Lincura;Ana.Lincura@fao.org;fao135;3;5;1
+14;1155451659;María;Hernandez;María.Hernandez@fao.org;fao136;3;5;1
+15;1388813449;Yasna;Cuevas;Yasna.Cuevas@fao.org;fao137;1;2;0
+16;1140001791;Carlos;Carrasco;Carlos.Carrasco@fao.org;fao138;1;1;1
+17;1231678102;José;Flores;José.Flores@fao.org;fao139;3;5;0
+18;1176457367;Juan;Cuevas;Juan.Cuevas@fao.org;fao140;1;2;0
+19;1944440193;José;Aguayo;José.Aguayo@fao.org;fao141;1;1;0
+20;1752789235;Herminio;Ruiz;Herminio.Ruiz@fao.org;fao142;2;5;1
+21;1791350565;Edina;Alarcón;Edina.Alarcón@fao.org;fao143;1;3;0
+22;1319887168;Ramón;Olivares;Ramón.Olivares@fao.org;fao144;2;5;0
+23;1918989825;Patricio;Ancatrio;Patricio.Ancatrio@fao.org;fao145;2;5;1
+24;1961619694;Nilda;Meza;Nilda.Meza@fao.org;fao146;3;5;1
+25;1025767257;María;Biava;María.Biava@fao.org;fao147;3;5;0
+26;1374489051;Rigoberto;Caceres;Rigoberto.Caceres@fao.org;fao148;3;5;1
+27;1324781152;Pedro;Carrillo;Pedro.Carrillo@fao.org;fao149;3;5;0
+28;1199733114;Segundo;Marin;Segundo.Marin@fao.org;fao150;1;3;0
+29;1590531900;Mario;Escobar;Mario.Escobar@fao.org;fao151;3;5;1
+30;1494063627;Demesio;Gutierrez;Demesio.Gutierrez@fao.org;fao152;1;4;0
+31;1303869791;Carlos;Guerrero;Carlos.Guerrero@fao.org;fao153;1;2;0

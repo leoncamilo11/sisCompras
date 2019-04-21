@@ -2,10 +2,10 @@
   /**
    *
    */
-  class MenuController
+  class MenuControlador
   {
 
-    public function MenuUsuariosController()
+    public function menuUsuariosControlador()
     {
       ob_start();
       if (isset($_SESSION["sesionIniciada"])) {

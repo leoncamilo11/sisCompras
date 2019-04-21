@@ -1,3 +1,7 @@
+-- ********************************************************************************************************
+-- 				Script para crear base datos y relaciones entre tablas controlcomprasdb
+-- ********************************************************************************************************
+
 #Validacion creacion y utilizacion de la base de datos
 	drop database if exists controlcomprasdb;
 	create database if not exists controlcomprasdb;
@@ -5,22 +9,22 @@
     
 #Creacion de tablas
 	create table compra (
-		IdCompraPk								int not null auto_increment primary key,
+		IdCompra								int not null auto_increment primary key,
         Consecutivo								varchar(15) not null,
         NoIntend								int,
         Objeto									varchar(100) not null,
         NoRequisicion							int not null,
-        IdValorFk								int not null,
-        IdProcedimientoFk						int not null,
-        IdTipoCompraFk							int not null,
-        IdSolicitanteFk							int not null,
-        IdLugarEntregaFk						int not null,
-        IdProcesoFk								int not null,
+        IdValor									int not null,
+        IdProcedimiento							int not null,
+        IdTipoCompra							int not null,
+        IdSolicitante							int not null,
+        IdLugarEntrega							int not null,
+        IdProceso								int not null,
         Activo									bool
     );
     
 	create table valor (
-		IdValorPk								int not null auto_increment primary key,
+		IdValor								int not null auto_increment primary key,
         ValorCopInicial							int not null,
         ValorUsdInicial							int not null,
         TasaCambioInicial						int not null,
@@ -30,92 +34,93 @@
     );
     
 	create table lugarEntrega (
-		IdLugarEntregaPk						int not null auto_increment primary key,
-        IdMunicipioFk							int not null,
+		IdLugarEntrega							int not null auto_increment primary key,
+        IdMunicipio								int not null,
         Observaciones							varchar(50) not null
     );
     
 	create table departamento (
-		IdDepartamentoPk						int not null primary key,
+		IdDepartamento							int not null primary key,
         Departamento							varchar(40) not null
     );
     
     create table municipio (
-		IdMunicipioPk							int not null primary key,
+		IdMunicipio								int not null primary key,
         Municipio								varchar(40) not null,
-        IdDepartamentoFk						int not null
+        IdDepartamento							int not null
     );
     
 	create table procedimiento (
-		IdProcedimientoPk						int not null auto_increment primary key,
+		IdProcedimiento							int not null auto_increment primary key,
         Procedimiento							varchar(5) not null
     );
     
 	create table tipoCompra (
-		IdTipoCompraPk							int not null auto_increment primary key,
+		IdTipoCompra							int not null auto_increment primary key,
         TipoCompra								varchar(10) not null
     );
     
 	create table usuario (
-		IdUsuarioPk								int not null auto_increment primary key,
+		IdUsuario								int not null auto_increment primary key,
+        Identificacion							varchar(20) not null unique,
         Nombre									varchar(50) not null,
         Apellido								varchar(50) not null,
         Email									varchar(50) not null,
         Clave									varchar(20) not null,							
-        IdRolFk									int not null,
-        IdProyectoFk							int not null,
+        IdRol									int not null,
+        IdProyecto								int not null,
         Activo									bool not null
     );
     
 	create table rol (
-		idRolPk									int not null auto_increment primary key,
+		idRol									int not null auto_increment primary key,
         Rol										varchar(15) not null
     );
     
     create table proyecto (
-		IdProyectoPk							int not null auto_increment primary key,
+		IdProyecto								int not null auto_increment primary key,
         Proyecto								varchar(30) not null
     );
     
     create table proceso (
-		IdProcesoPk								int not null auto_increment primary key,
+		IdProceso								int not null auto_increment primary key,
         FechaEntregaInicioEjecucion				datetime not null,
         FechaSolicitudProyecto					datetime not null,
         FechaAceptacionTramite					datetime not null,
         DiasTranscurridosSolicitudAceptacion	int not null, 
         DiasEstablecidosSolicitudAceptacion		int not null,
         DiasDiferenciaSolicitudAceptacion		int not null,
-        IdDevolucionFk							int not null,
-        IdDelegacionAutoridadFk					int not null,
-        IdPublicacionFk							int not null,
-        IdRevisionActaFk						int not null,
-        IdAprobacionFk							int not null,
-        IdFirmaProveedorFk						int not null,
-        IdEstadoFk								int not null,
-        IdResponsableFk							int not null,
-        IdPoFk									int not null
+        IdDevolucion							int not null,
+        IdDelegacionAutoridad					int not null,
+        IdPublicacion							int not null,
+        IdRevisionActa							int not null,
+        IdAprobacion							int not null,
+        IdFirmaProveedor						int not null,
+        IdEstado								int not null,
+        IdResponsable							int not null,
+        IdPo									int not null
     );
     
     create table devolucion (
-		IdDevolucionPk							int not null auto_increment primary key,
+		IdDevolucion							int not null auto_increment primary key,
         FechaDevolucionProyecto					datetime not null,
-        IdMotivoDevolucionFk					int not null,
+        IdMotivoDevolucion						int not null,
         Observaciones							varchar(50) not null
     );
     
     create table motivoDevolucion (
-		IdMotivoDevolucionPk					int not null auto_increment primary key,
+		IdMotivoDevolucion						int not null auto_increment primary key,
         Motivo									varchar(50) not null
     );
     
     create table delegacionAutoridad (
-		IdDelegacionAutoridadPk					int not null auto_increment primary key,
+		IdDelegacionAutoridad					int not null auto_increment primary key,
         Solicitud								datetime not null,
         Aprobacion								datetime not null
     );
     
     create table publicacion (
-		IdPublicacionPk							int not null auto_increment primary key,
+		IdPublicacion							int not null auto_increment primary key,
         FechaPublicacion						datetime not null,
         DiasEntreAceptacionPublicacion			int not null,
         DiasEstipuladosAceptacionPublicacion	int not null,
@@ -127,7 +132,7 @@
     );
     
     create table revisionActa (
-		IdRevisionActaPk						int not null auto_increment primary key,
+		IdRevisionActa							int not null auto_increment primary key,
         FechaEnvioOfertas						datetime not null,
         FechaEnvioBorrador						datetime not null,
         FechaEnvioRevisado						datetime not null,
@@ -139,7 +144,7 @@
     );
     
     create table aprobacion (
-		IdAprobacionPk							int not null auto_increment primary key,
+		IdAprobacion							int not null auto_increment primary key,
         FechaEnvioEvaluacionTecnica				datetime not null,
         FechaAprobacionFinalTecnica				datetime not null,
         DiasEvaluacionTecnica					int not null,
@@ -155,22 +160,22 @@
     );
     
     create table firmaProveedor (
-		IdFirmaProveedorPk						int not null auto_increment primary key,
+		IdFirmaProveedor						int not null auto_increment primary key,
         FechaEnvioContrato						datetime not null,
         FechaDevolucionContrato					datetime not null,
         DiasTotalesFirma						int not null
     );
     
     create table estado (
-		IdEstadoPk								int not null auto_increment primary key,
+		IdEstado								int not null auto_increment primary key,
         Estado									varchar(50) not null
     );
     
     create table po (
-		IdPoPk									int not null auto_increment primary key,
+		IdPo									int not null auto_increment primary key,
         Numero									int not null,
         ProveedorAdjudicado						varchar(50) not null,
-        IdSoportesFK							int not null,
+        IdSoportes								int not null,
         FechaDevolcuionFirmada					datetime not null,
         FechaProcesoArchivado					datetime not null,
         DiasTotalesHastaNotificacion			int not null,
@@ -179,17 +184,17 @@
         FechaEstimadaNotificacion				datetime not null,
         DiasVencimiento							int not null,
         Observaciones							varchar(50) not null,
-        IdRazonesRetrasoFK						int not null,
-        IdEmisionPoFk							int not null
+        IdRazonesRetraso						int not null,
+        IdEmisionPo								int not null
     );
     
     create table razonesRetraso (
-		IdRazonesRetrasoPk						int not null auto_increment primary key,
+		IdRazonesRetraso						int not null auto_increment primary key,
         Razon									varchar(50) not null
     );
     
     create table emisionPo (
-		IdEmisionPoPk							int not null auto_increment primary key,
+		IdEmisionPo								int not null auto_increment primary key,
         FechaElaboracion						datetime not null,
         FechaAprobacion							datetime not null,
         FechafirmaResponsable					datetime not null,
@@ -201,90 +206,90 @@
     
 #Creacion de las llavas foraneas
 
-	alter table compra add constraint IdValorFk
-	foreign key (IdValorFk) references
-	valor (IdValorPk);
+	alter table compra add constraint IdValor
+	foreign key (IdValor) references
+	valor (IdValor);
     
-	alter table compra add constraint IdProcedimientoFk
-	foreign key (IdProcedimientoFk) references
-	procedimiento (IdProcedimientoPk);
+	alter table compra add constraint IdProcedimiento
+	foreign key (IdProcedimiento) references
+	procedimiento (IdProcedimiento);
     
-    alter table compra add constraint IdTipoCompraFk
-	foreign key (IdTipoCompraFk) references
-	tipoCompra (IdTipoCompraPk);
+    alter table compra add constraint IdTipoCompra
+	foreign key (IdTipoCompra) references
+	tipoCompra (IdTipoCompra);
     
-    alter table compra add constraint IdSolicitanteFk
-	foreign key (IdSolicitanteFk) references
-	usuario (IdUsuarioPk);
+    alter table compra add constraint IdSolicitante
+	foreign key (IdSolicitante) references
+	usuario (IdUsuario);
     
-    alter table compra add constraint IdLugarEntregaFk
-	foreign key (IdLugarEntregaFk) references
-	lugarEntrega (IdLugarEntregaPk);
+    alter table compra add constraint IdLugarEntrega
+	foreign key (IdLugarEntrega) references
+	lugarEntrega (IdLugarEntrega);
     
-    alter table compra add constraint IdProcesoFk
-	foreign key (IdProcesoFk) references
-	proceso (IdProcesoPk);
+    alter table compra add constraint IdProceso
+	foreign key (IdProceso) references
+	proceso (IdProceso);
     
-    alter table municipio add constraint IdDepartamentoFk
-	foreign key (IdDepartamentoFk) references
-	departamento (IdDepartamentoPk);
+    alter table municipio add constraint IdDepartamento
+	foreign key (IdDepartamento) references
+	departamento (IdDepartamento);
     
-    alter table lugarEntrega add constraint IdMunicipioFk
-	foreign key (IdMunicipioFk) references
-	municipio (IdMunicipioPk);
+    alter table lugarEntrega add constraint IdMunicipio
+	foreign key (IdMunicipio) references
+	municipio (IdMunicipio);
     
-    alter table usuario add constraint IdRolFk
-	foreign key (IdRolFk) references
-	rol (IdRolpk);
+    alter table usuario add constraint IdRol
+	foreign key (IdRol) references
+	rol (IdRol);
     
-    alter table usuario add constraint IdProyectoFk
-	foreign key (IdProyectoFk) references
-	proyecto (IdProyectoPk);
+    alter table usuario add constraint IdProyecto
+	foreign key (IdProyecto) references
+	proyecto (IdProyecto);
     
-    alter table proceso add constraint IdDevolucionFk
-	foreign key (IdDevolucionFk) references
-	devolucion (IdDevolucionPk);
+    alter table proceso add constraint IdDevolucion
+	foreign key (IdDevolucion) references
+	devolucion (IdDevolucion);
     
-    alter table proceso add constraint IdDelegacionAutoridadFk
-	foreign key (IdDelegacionAutoridadFk) references
-	delegacionAutoridad (IdDelegacionAutoridadPk);
+    alter table proceso add constraint IdDelegacionAutoridad
+	foreign key (IdDelegacionAutoridad) references
+	delegacionAutoridad (IdDelegacionAutoridad);
     
-    alter table proceso add constraint IdPublicacionFk
-	foreign key (IdPublicacionFk) references
-	publicacion (IdPublicacionPk);
+    alter table proceso add constraint IdPublicacion
+	foreign key (IdPublicacion) references
+	publicacion (IdPublicacion);
     
-    alter table proceso add constraint IdRevisionActaFk
-	foreign key (IdRevisionActaFk) references
-	revisionActa (IdRevisionActaPk);
+    alter table proceso add constraint IdRevisionActa
+	foreign key (IdRevisionActa) references
+	revisionActa (IdRevisionActa);
     
-    alter table proceso add constraint IdAprobacionFk
-	foreign key (IdAprobacionFk) references
-	aprobacion (IdAprobacionPk);
+    alter table proceso add constraint IdAprobacion
+	foreign key (IdAprobacion) references
+	aprobacion (IdAprobacion);
     
-    alter table proceso add constraint IdFirmaProveedorFk
-	foreign key (IdFirmaProveedorFk) references
-	firmaProveedor (IdFirmaProveedorPk);
+    alter table proceso add constraint IdFirmaProveedor
+	foreign key (IdFirmaProveedor) references
+	firmaProveedor (IdFirmaProveedor);
     
-    alter table proceso add constraint IdEstadoFk
-	foreign key (IdEstadoFk) references
-	estado (IdEstadoPk);
+    alter table proceso add constraint IdEstado
+	foreign key (IdEstado) references
+	estado (IdEstado);
     
-    alter table proceso add constraint IdResponsableFk
-	foreign key (IdResponsableFk) references
-	usuario (IdUsuarioPk);
+    alter table proceso add constraint IdResponsable
+	foreign key (IdResponsable) references
+	usuario (IdUsuario);
     
-    alter table proceso add constraint IdPoFk
-	foreign key (IdPoFk) references
-	po (IdPoPk);
+    alter table proceso add constraint IdPo
+	foreign key (IdPo) references
+	po (IdPo);
     
-    alter table devolucion add constraint IdMotivoDevolucionFk
-	foreign key (IdMotivoDevolucionFk) references
-	motivoDevolucion (IdMotivoDevolucionPk);
+    alter table devolucion add constraint IdMotivoDevolucion
+	foreign key (IdMotivoDevolucion) references
+	motivoDevolucion (IdMotivoDevolucion);
     
-    alter table po add constraint IdRazonesRetrasoFK
-	foreign key (IdRazonesRetrasoFK) references
-	razonesRetraso (IdRazonesRetrasoPk);
+    alter table po add constraint IdRazonesRetraso
+	foreign key (IdRazonesRetraso) references
+	razonesRetraso (IdRazonesRetraso);
     
-    alter table po add constraint IdEmisionPoFk
-	foreign key (IdEmisionPoFk) references
-	emisionPo (IdEmisionPoPk);
+    alter table po add constraint IdEmisionPo
+	foreign key (IdEmisionPo) references
+	emisionPo (IdEmisionPo);

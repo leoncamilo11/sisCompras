@@ -2,7 +2,7 @@
   /**
    *
    */
-  class MvcController
+  class MvcControlador
   {
 
     public function plantilla()
@@ -10,12 +10,16 @@
       include "Vistas/template.php";
     }
 
-    public function controladorEnalcesPaginas()
+    public function enalcesPaginasControlador()
     {
       $enlace = "introduccion";
       if (isset($_GET["llamar"])) {
         $enlace = $_GET["llamar"];
-      } elseif (isset($_GET["compras"])) {
+      } else if (isset($_GET["desactivarU"]) || isset($_GET["ModificarU"]) || isset($_GET["activarU"])) {
+				$enlace = "consultarUsuarios";
+      } else if (isset($_GET["actualizarU"])) {
+				$enlace = "actualizarUsuarios";
+			} elseif (isset($_GET["compras"])) {
         $enlace = "compras";
       } elseif (isset($_GET["reportes"])) {
         $enlace = "reportes";
@@ -24,7 +28,7 @@
       } else {
         $enlace = "introduccion";
       }
-      $modulo=MvcModelo::enlacesPaginaModelo($enlace);
+      $modulo = MvcModelo::enlacesPaginasModelo($enlace);
       include $modulo;
     }
   }
